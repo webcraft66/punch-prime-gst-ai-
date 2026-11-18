@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { color-scheme: light; }
+html, body { height: 100%; }
+body { @apply bg-slate-50 text-slate-800 antialiased; font-feature-settings: 'tnum' 1, 'cv11' 1; }
+::selection { background: #fde18a; color: #0b1f44; }
+
+@layer components {
+  .card { @apply rounded-xl border border-slate-200 bg-white shadow-card; }
+  .card-pad { @apply p-5; }
+  .label { @apply mb-1 block text-xs font-medium text-slate-600; }
+  .input { @apply w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 shadow-sm placeholder:text-slate-400 transition focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-500/20 disabled:bg-slate-100 disabled:text-slate-500; }
+  .input-num { @apply text-right tabular-nums; }
+  .btn { @apply inline-flex items-center justify-center gap-2 rounded-lg px-3.5 py-2 text-sm font-medium transition focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500/40 disabled:cursor-not-allowed disabled:opacity-50; }
+  .btn-primary { @apply btn bg-brand-800 text-white shadow-sm hover:bg-brand-700 active:bg-brand-900; }
+  .btn-gold { @apply btn bg-gold-400 text-brand-900 shadow-sm hover:bg-gold-300; }
+  .btn-ghost { @apply btn border border-slate-300 bg-white text-slate-700 hover:bg-slate-50; }
+  .btn-danger { @apply btn bg-red-600 text-white hover:bg-red-700; }
+  .btn-sm { @apply px-2.5 py-1.5 text-xs; }
+  .th { @apply whitespace-nowrap bg-slate-50 px-3 py-2.5 text-left text-[11px] font-semibold uppercase tracking-wide text-slate-500; }
+  .td { @apply px-3 py-2.5 text-sm text-slate-700; }
+  .badge { @apply inline-flex items-center rounded-full px-2 py-0.5 text-[11px] font-medium; }
+  .num { @apply text-right tabular-nums; }
+}
+
+/* Print: show only the page content */
+@media print {
+  aside, header.app-top, .no-print { display: none !important; }
+  body { background: #fff !important; }
+  main { padding: 0 !important; }
+  .print-sheet { box-shadow: none !important; border: none !important; }
+  @page { size: A4; margin: 12mm; }
+}
